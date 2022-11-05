@@ -1,0 +1,25 @@
+.parallax-container {
+    min-height: 400px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255, 255, 255, .9);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: fill;
+}
+
+.parallax-container .section {
+    width: 100%;
+}
+
+.carousel .carousel-item {
+	width: 340px !important;
+	padding: 20px;
+}
+
+.card{ 
+	border-radius: 8px; 
+	position: relative !important;
+	right: 20px !important;
+}

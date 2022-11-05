@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Post
 
 # Create your views here.
 def index(request):
-  return render(request, "./blog_app/base.html")
+  post = Post.published.all()
+  return render(request, "./blog_app/base.html",
+  {
+    "post" : post
+  })

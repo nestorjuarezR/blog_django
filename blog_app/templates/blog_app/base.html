@@ -1,17 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Index</title>
+
+  {% block style %}
   <!-- Materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Iconos -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Estilos -->
+  <link href="{% static '/blog_app/css/style.css'%} " type="text/css" rel="stylesheet" media="screen,projection" />
+
+  {% endblock style %}
 
 
-  
+
 </head>
+
 <body>
+
+  {% block header %}
+  <!-- Barra de navegacion -->
   <nav class="grey darken-3 ">
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">Logo</a>
@@ -23,5 +37,94 @@
       </ul>
     </div>
   </nav>
+
+  <!-- Portada -->
+
+  <div class="parallax-container">
+    <div class="parallax">
+      <img class="responsive-img" src=" {% static 'blog_app/img/portada.jpg' %}">
+    </div>
+  </div>
+  {% endblock header %}
+
+  <div class="section">
+    <h3 class="center">Mas populares</h3>
+    <div class="container">
+      <!-- Carta horizontal -->
+
+      {% for i in post %}
+      <div class="carousel carousel-slider">
+        <a class="carousel-item black-text" href="">
+          <div class="card">
+            <div class="card-image">
+              <i class="small material-icons">insert_emoticon</i>
+            </div>
+            <div class="card-content">
+              <h6>{{ i.title }}</h6>
+              <p> {{ i.body }}</p>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+
+
+
+        <!-- 
+        <a class="carousel-item black-text" href="#three">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/samples/retail.png">
+            </div>
+            <div class="card-content">
+              <h6>Retail</h6>
+              <p>Recommend products that match your customers' style, analyze reviews or survey data for topics and
+                trends</p>
+            </div>
+          </div>
+        </a>
+
+        <a class="carousel-item black-text" href="#three">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/samples/retail.png">
+            </div>
+            <div class="card-content">
+              <h6>Content filtering</h6>
+              <p>Adjusters have photos of cars damaged in accidents; these images, however, are not helping prevent
+                future ...</p>
+            </div>
+          </div>
+        </a>
+
+        <a class="carousel-item black-text" href="#three">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/samples/retail.png">
+            </div>
+            <div class="card-content">
+              <h6>Card 5</h6>
+              <p>I am a very simple card. I am good at containing small bits of information.
+                I am convenient because I require little markup to use effectively.</p>
+            </div>
+          </div>
+        </a> -->
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Inicio del  bloque de script -->
+  {% block javascript %}
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static '/blog_app/js/init.js' %}"></script>
+  <script src=" {% static '/blog_app/js/materialize.js' %} "></script>
+  {% endblock %}
+  <!-- Fin del bloque de Script -->
 </body>
+
 </html>
